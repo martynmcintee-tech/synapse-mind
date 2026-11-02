@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Synapse Forge — Autonomous Software Factory & Commercial Storefront</title>
+  <!-- 100% self-contained styling, zero external CDN dependencies -->
+  <link rel="stylesheet" href="/static/css/store.css">
+</head>
+<body>
+  <!-- Navigation Header -->
+  <nav class="store-nav">
+    <a href="/store" class="brand-wrapper">
+      <div class="brand-icon">&#9889;</div>
+      <div class="brand-title">SYNAPSE FORGE</div>
+    </a>
+    <div class="nav-links">
+      <a href="#demo" class="nav-link">Live Demo</a>
+      <a href="#pricing" class="nav-link">Pricing Tiers</a>
+      <a href="#matrix" class="nav-link">Feature Matrix</a>
+      <a href="/" class="nav-link" style="color: var(--cyan-primary);">&#9654; Open AGI Studio</a>
+      <a href="#pricing" class="nav-cta">Deploy Factory</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero-section">
+    <div class="hero-pill">
+      <span>&#9673;</span> PRIVATE WORKSTATION AGI &bull; 13 SPECIALIST NEURAL ENGINES
+    </div>
+    
+    <h1 class="hero-title">
+      Autonomous Software Factory &amp; <br>
+      <span class="hero-title-highlight">Evolving AGI Studio</span>
+    </h1>
+
+    <p class="hero-tagline">
+      Synthesize ready-to-sell commercial software products autonomously using 13 specialized local neural models on your own workstation. Zero cloud API bills. 100% private.
+    </p>
+
+    <!-- Trust Badges -->
+    <div class="hero-badges-row">
+      <div class="trust-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+        100% Private RTX 3090 Inference
+      </div>
+      <div class="trust-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+        Zero Recurring Cloud API Fees
+      </div>
+      <div class="trust-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+        Direct I/O NVMe Acceleration
+      </div>
+      <div class="trust-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+        Self-Evolution in Sandboxed Isolation
+      </div>
+    </div>
+
+    <!-- Hero CTA Buttons -->
+    <div class="hero-cta-group">
+      <a href="#demo" class="btn-hero-primary">Try Interactive Demo &rarr;</a>
+      <a href="/" class="btn-hero-secondary">Launch AGI Studio Console</a>
+    </div>
+  </header>
+
+  <!-- Interactive Live Demonstration Embed -->
+  <section class="demo-section" id="demo">
+    <div class="section-header">
+      <div class="section-label">Interactive Multi-Model Simulator</div>
+      <h2 class="section-title">See Synapse Forge Synthesize in Real-Time</h2>
+      <p class="section-subtitle">
+        Select a software product idea and watch the 13-node specialist society orchestrate architecture, schema, production code, mathematical audit, and sales copy.
+      </p>
+    </div>
+
+    <div class="demo-box">
+      <!-- Demo Controls -->
+      <div class="demo-top-bar">
+        <div class="demo-preset-group">
+          <span class="demo-preset-label">Choose Product Blueprint:</span>
+          <select id="demoPresetSelect" class="demo-select">
+            <option value="cache_go">Synapse Lock-Free Memory Cache (Go)</option>
+            <option value="webhook_py">Stripe Billing Webhook Handler (Python)</option>
+            <option value="vector_db">High-Throughput Vector Embedding Kernel (C/Python)</option>
+          </select>
+        </div>
+
+        <button id="demoRunBtn" class="demo-run-btn">
+          <span>&#9654; Synthesize Product</span>
+        </button>
+      </div>
+
+      <!-- 5-Stage Multi-Model Pipeline Progress -->
+      <div class="demo-stage">
+        <div class="stage-step-row">
+          <div class="step-card">
+            <div class="step-num">Step 1</div>
+            <div class="step-name">Architecture Design</div>
+            <div class="step-model">Qwen3.8-27B-UD</div>
+          </div>
+          <div class="step-card">
+            <div class="step-num">Step 2</div>
+            <div class="step-name">Schema &amp; Persistence</div>
+            <div class="step-model">sqlcoder-7b-2</div>
+          </div>
+          <div class="step-card">
+            <div class="step-num">Step 3</div>
+            <div class="step-name">Production Code</div>
+            <div class="step-model">Qwen2.5-Coder-32B</div>
+          </div>
+          <div class="step-card">
+            <div class="step-num">Step 4</div>
+            <div class="step-name">Math &amp; Logic Audit</div>
+            <div class="step-model">DeepSeek-R1-Distill-32B</div>
+          </div>
+          <div class="step-card">
+            <div class="step-num">Step 5</div>
+            <div class="step-name">Sales Landing Copy</div>
+            <div class="step-model">gemma-2-27b-it</div>
+          </div>
+        </div>
+
+        <div class="demo-progress">
+          <div class="demo-progress-bar" id="demoProgressBar"></div>
+        </div>
+      </div>
+
+      <!-- Output Tabs -->
+      <div class="demo-tabs-bar">
+        <button class="demo-tab-btn active" data-tab="code">Generated Source Code</button>
+        <button class="demo-tab-btn" data-tab="docs">Architecture &amp; Docs</button>
+        <button class="demo-tab-btn" data-tab="copy">Sales Landing Page Copy</button>
+        <button class="demo-tab-btn" data-tab="pricing">Monetization &amp; Pricing JSON</button>
+      </div>
+
+      <div class="demo-content-pane" id="demoContentPane">
+        <!-- Injected dynamically by store_demo.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Tiering Section -->
+  <section class="pricing-section" id="pricing">
+    <div class="section-header">
+      <div class="section-label">Transparent Commercial Pricing</div>
+      <h2 class="section-title">Deploy Your Autonomous Software Factory</h2>
+      <p class="section-subtitle">
+        Run forever on your own workstation. No per-token extortion, no cloud latency, complete ownership of every line of code synthesized.
+      </p>
+    </div>
+
+    <!-- Monthly / Perpetual Billing Switcher -->
+    <div class="billing-toggle-wrapper">
+      <span class="billing-label active" id="monthlyLabel">Monthly Subscription</span>
+      <div class="toggle-switch" id="billingToggle">
+        <div class="toggle-slider"></div>
+      </div>
+      <span class="billing-label" id="perpetualLabel">Perpetual Workstation License</span>
+      <span class="save-badge">Save up to 35%</span>
+    </div>
+
+    <!-- 3 Product Tiers Grid -->
+    <div class="pricing-grid">
+      <!-- Tier 1: Community Core -->
+      <div class="pricing-card">
+        <div class="tier-name">Community Core</div>
+        <div class="tier-desc">Essential autonomous tools for individual developers and tinkerers.</div>
+        
+        <div class="tier-price-row">
+          <span class="price-currency">$</span>
+          <span class="price-val">0</span>
+          <span class="price-period">/ free forever</span>
+        </div>
+
+        <a href="/" class="tier-btn">Deploy Community</a>
+
+        <ul class="tier-features-list">
+          <li class="tier-feature-item">
+            <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+            Single-model synthesis engine
+          </li>
+          <li class="tier-feature-item">
+            <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+            Local SQLite memory store
+          </li>
+          <li class="tier-feature-item">
+            <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+            Standard manual compilation
+          </li>
+          <li class="tier-feature-item">
+            <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+            Basic Python tool sandbox
+          </li>
+          <li class="tier-feature-item">
+            <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+            Community Discord support
+          </li>
+        </ul>
+      </div>
+
+      <!-- Tier 2: Professional Fleet (Featured) -->
+      <div class="pricing-card featured">
+        <div class="featured-ribbon">Most Popular</div>
+        <div class="tier-name">Professional Fleet</div>
+        <div class="tier-desc">Dedicated autonomous software factory running the complete 13-node local specialist fleet.</div>
+        
+        <div class="tier-price-row">
+          <span class="price-currency">$</span>
+          <span class="price-val" id="pricePro">99</span>
+          <span class="price-period" id="periodPro">/ mo</span>
+        </div>
+
+        <a href="/" class="tier-btn">Activate Professional</a>
+
+        <ul class="tier-features-list">
+          <li class="tier-feature-item">
+            <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+            <strong>Full 13-node MoE dynamic fleet routing</strong>
+          </li>
+          <li class="tier-feature-item">
+            <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+            NVMe Direct I/O acceleration (~8.8s cold swaps)
+          </li>
+          <li class="tier-feature-item">
+            <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+            Real-time 60fps neural topology canvas &amp; HUD
+          </li>
+          <li class="tier-feature-item">
+            <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+            4-tier AST security sandbox gatekeeper
+          </li>
+          <li class="tier-feature-item">
+            <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+            One-click release ZIP bundle exporter
+          </li>
+          <li class="tier-feature-item">
+            <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+            Commercial software resale rights
+          </li>
+        </ul>
+      </div>
+
+      <!-- Tier 3: Enterprise Factory -->
+      <div class="pricing-card">
+        <div class="tier-name">Enterprise Factory</div>
+        <div class="tier-desc">Unrestricted self-evolving software enterprise with 24/7 autonomous improvement loops.</div>
+        
+        <div class="tier-price-row">
+          <span class="price-currency">$</span>
+          <span class="price-val" id="priceEnt">499</span>
+          <span class="price-period" id="periodEnt">/ mo</span>
+        </div>
+
+        <a href="/" class="tier-btn">Deploy Enterprise</a>
+
+        <ul class="tier-features-list">
+          <li class="tier-feature-item">
+            <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+            <strong>Everything in Professional Fleet</strong>
+          </li>
+          <li class="tier-feature-item">
+            <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+            24/7 autonomous self-evolution loop
+          </li>
+          <li class="tier-feature-item">
+            <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+            Unlimited multi-project concurrent synthesis
+          </li>
+          <li class="tier-feature-item">
+            <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+            White-label storefront distribution
+          </li>
+          <li class="tier-feature-item">
+            <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+            Custom 4-bit LoRA adapter fine-tuning
+          </li>
+          <li class="tier-feature-item">
+            <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+            Dedicated engineering team support SLA
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 18-Point Feature Matrix Section -->
+  <section class="matrix-section" id="matrix">
+    <div class="section-header">
+      <div class="section-label">Deep Technical Comparison</div>
+      <h2 class="section-title">18-Point Capability Matrix</h2>
+      <p class="section-subtitle">
+        Every architecture layer rigorously engineered for zero cloud lock-in and high-throughput workstation execution.
+      </p>
+    </div>
+
+    <div class="matrix-table-wrap">
+      <table class="matrix-table">
+        <thead>
+          <tr>
+            <th>Platform Capability</th>
+            <th class="matrix-col-tier">Community Core</th>
+            <th class="matrix-col-tier">Professional Fleet</th>
+            <th class="matrix-col-tier">Enterprise Factory</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="matrix-feature-name">1. 13-Specialist Local Fleet Routing</td>
+            <td class="matrix-col-tier matrix-badge-no">&#8212; (Single Model)</td>
+            <td class="matrix-col-tier matrix-badge-yes">&#10003; Full 13 Fleet</td>
+            <td class="matrix-col-tier matrix-badge-yes">&#10003; Full 13 Fleet</td>
+          </tr>
+          <tr>
+            <td class="matrix-feature-name">2. Direct I/O NVMe Acceleration (~8.8s swaps)</td>
+            <td class="matrix-col-tier matrix-badge-no">&#8212;</td>
+            <td class="matrix-col-tier matrix-badge-yes">&#10003; Active (--load-mode dio)</td>
+            <td class="matrix-col-tier matrix-badge-yes">&#10003; Active (--load-mode dio)</td>
+          </tr>
+          <tr>
+            <td class="matrix-feature-name">3. Normalized Oja Synaptic Plasticity</td>
+            <td class="matrix-col-tier matrix-badge-no">&#8212;</td>
+            <td class="matrix-col-tier matrix-badge-yes">&#10003; Bounded Zero-NaN</td>
+            <td class="matrix-col-tier matrix-badge-yes">&#10003; Bounded Zero-NaN</td>
+          </tr>
+          <tr>
+            <td class="matrix-feature-name">4. Real-time 60fps Neural Topology Canvas</td>
+            <td class="matrix-col-tier matrix-badge-no">&#8212;</td>
+            <td class="matrix-col-tier matrix-badge-yes">&#10003; HTML5 Canvas</td>
+            <td class="matrix-col-tier matrix-badge-yes">&#10003; HTML5 Canvas</td>
+          </tr>
+          <tr>
+            <td class="matrix-feature-name">5. Live Hardware HUD (RTX 3090, 990 PRO NVMe, CPU)</td>
+            <td class="matrix-col-tier matrix-badge-no">&#8212; (CLI only)</td>
+            <td class="matrix-col-tier matrix-badge-yes">&#10003; 10Hz WebSocket</td>
+            <td class="matrix-col-tier matrix-badge-yes">&#10003; 10Hz WebSocket</td>
+          </tr>
+          <tr>
+            <td class="matrix-feature-name">6. 4-Tier AST Security Sandbox Gatekeeper</td>
+            <td class="matrix-col-tier matrix-badge-no">Tier 1 only</td>
+            <td class="matrix-col-tier matrix-badge-yes">&#10003; Full 4-Tier Gatekeeper</td>
+            <td class="matrix-col-tier matrix-badge-yes">&#10003; Full 4-Tier Gatekeeper</td>
+          </tr>
+          <tr>
+            <td class="matrix-feature-name">7. Autonomous Recursive Self-Evolution</td>
+            <td class="matrix-col-tier matrix-badge-no">&#8212;</td>
+            <td class="matrix-col-tier matrix-badge-yes">&#10003; Manual Trigger</td>
+            <td class="matrix-col-tier matrix-badge-yes">&#10003; 24/7 Autonomous Loop</td>
+          </tr>
+          <tr>
+            <td class="matrix-feature-name">8. Society-of-Mind Multi-Agent Product Synthesis</td>
+            <td class="matrix-col-tier matrix-badge-no">&#8212;</td>
+            <td class="matrix-col-tier matrix-badge-yes">&#10003; 5-Specialist Chain</td>
+            <td class="matrix-col-tier matrix-badge-yes">&#10003; 5-Specialist Chain</td>
+          </tr>
+          <tr>
+            <td class="matrix-feature-name">9. Commercial Landing Copy &amp; Sales Synthesis</td>
+            <td class="matrix-col-tier matrix-badge-no">&#8212;</td>
+            <td class="matrix-col-tier matrix-badge-yes">&#10003; gemma-2-27b-it</td>
+            <td class="matrix-col-tier matrix-badge-yes">&#10003; gemma-2-27b-it</td>
+          </tr>
+          <tr>
+            <td class="matrix-feature-name">10. One-Click Release Bundle ZIP Exporter</td>
+            <td class="matrix-col-tier matrix-badge-no">&#8212;</td>
+            <td class="matrix-col-tier matrix-badge-yes">&#10003; Automated /api/bundle</td>
+            <td class="matrix-col-tier matrix-badge-yes">&#10003; Automated /api/bundle</td>
+          </tr>
+          <tr>
+            <td class="matrix-feature-name">11. SQLite WAL Relational Telemetry Store (6 schemas)</td>
+            <td class="matrix-col-tier matrix-badge-yes">&#10003; Basic</td>
+            <td class="matrix-col-tier matrix-badge-yes">&#10003; WAL Mode + FKs</td>
+            <td class="matrix-col-tier matrix-badge-yes">&#10003; WAL Mode + FKs</td>
+          </tr>
+          <tr>
+            <td class="matrix-feature-name">12. Cryptographic Subsystem Provenance Attestation</td>
+            <td class="matrix-col-tier matrix-badge-no">&#8212;</td>
+            <td class="matrix-col-tier matrix-badge-yes">&#10003; SHA-256 Hashes</td>
+            <td class="matrix-col-tier matrix-badge-yes">&#10003; SHA-256 Hashes</td>
+          </tr>
+          <tr>
+            <td class="matrix-feature-name">13. Continuous Hopfield Free-Energy Objective</td>
+            <td class="matrix-col-tier matrix-badge-no">&#8212;</td>
+            <td class="matrix-col-tier matrix-badge-yes">&#10003; Log-Sum-Exp Stabilized</td>
+            <td class="matrix-col-tier matrix-badge-yes">&#10003; Log-Sum-Exp Stabilized</td>
+          </tr>
+          <tr>
+            <td class="matrix-feature-name">14. Bayesian Surprise Vector Gating (1024-dim BGE-M3)</td>
+            <td class="matrix-col-tier matrix-badge-no">&#8212;</td>
+            <td class="matrix-col-tier matrix-badge-yes">&#10003; Novelty Error</td>
+            <td class="matrix-col-tier matrix-badge-yes">&#10003; Novelty Error</td>
+          </tr>
+          <tr>
+            <td class="matrix-feature-name">15. Zero Recurring Cloud API Costs (100% Private)</td>
+            <td class="matrix-col-tier matrix-badge-yes">&#10003; Private</td>
+            <td class="matrix-col-tier matrix-badge-yes">&#10003; Private</td>
+            <td class="matrix-col-tier matrix-badge-yes">&#10003; Private</td>
+          </tr>
+          <tr>
+            <td class="matrix-feature-name">16. Perpetual Commercial Ownership Option</td>
+            <td class="matrix-col-tier matrix-badge-yes">&#10003; Open Source</td>
+            <td class="matrix-col-tier matrix-badge-yes">&#10003; $799 Perpetual</td>
+            <td class="matrix-col-tier matrix-badge-yes">&#10003; $3,499 Perpetual</td>
+          </tr>
+          <tr>
+            <td class="matrix-feature-name">17. White-Label Commercial Storefront</td>
+            <td class="matrix-col-tier matrix-badge-no">&#8212;</td>
+            <td class="matrix-col-tier matrix-badge-no">&#8212;</td>
+            <td class="matrix-col-tier matrix-badge-yes">&#10003; Included</td>
+          </tr>
+          <tr>
+            <td class="matrix-feature-name">18. Custom 4-Bit LoRA Model Forge Integration</td>
+            <td class="matrix-col-tier matrix-badge-no">&#8212;</td>
+            <td class="matrix-col-tier matrix-badge-no">&#8212;</td>
+            <td class="matrix-col-tier matrix-badge-yes">&#10003; Full Support</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="store-footer">
+    <div class="footer-links">
+      <a href="/" class="footer-link">AGI Studio Console</a>
+      <a href="/api/telemetry" class="footer-link">Live Telemetry API</a>
+      <a href="/api/provenance" class="footer-link">Build Provenance</a>
+      <a href="/api/bundle/export" class="footer-link">Export Release Bundle</a>
+    </div>
+    <div>&copy; 2026 Synapse Forge. Autonomous Software Factory &amp; Evolving AGI Studio. All rights reserved.</div>
+  </footer>
+
+  <!-- 100% self-contained JavaScript modules -->
+  <script src="/static/js/store_demo.js"></script>
+</body>
+</html>

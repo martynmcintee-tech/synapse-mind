@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SYNAPSE MIND — Unified 13-Model Cognitive Partner & Co-Working Studio</title>
+  <!-- 100% self-contained styling, zero external CDN dependencies -->
+  <link rel="stylesheet" href="/static/css/studio.css?v=2.2">
+  <style>
+    .studio-workspace {
+      display: grid;
+      grid-template-columns: 44% 56%;
+      gap: 20px;
+      flex: 1;
+      min-height: 580px;
+    }
+    .cowork-container {
+      background: var(--bg-card);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--border-glass);
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      height: calc(100vh - 220px);
+      min-height: 560px;
+    }
+    .cowork-header {
+      padding: 12px 18px;
+      border-bottom: 1px solid var(--border-glass);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(6, 9, 17, 0.55);
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .cowork-modes {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+    .mode-pill {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: var(--text-dim);
+      padding: 5px 11px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.18s;
+    }
+    .mode-pill.active, .mode-pill:hover {
+      background: rgba(0, 240, 255, 0.15);
+      border-color: var(--cyan-primary);
+      color: #fff;
+    }
+    .chat-feed {
+      flex: 1;
+      overflow-y: auto;
+      padding: 16px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .msg-bubble {
+      max-width: 92%;
+      padding: 13px 16px;
+      border-radius: 12px;
+      font-size: 13.5px;
+      line-height: 1.55;
+      position: relative;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+    .msg-user {
+      align-self: flex-end;
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.28), rgba(0, 240, 255, 0.18));
+      border: 1px solid rgba(0, 240, 255, 0.35);
+      color: #fff;
+    }
+    .msg-assistant {
+      align-self: flex-start;
+      background: rgba(8, 13, 25, 0.92);
+      border: 1px solid rgba(99, 102, 241, 0.32);
+      color: #e2e8f0;
+    }
+    .msg-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      margin-bottom: 8px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+      font-size: 11px;
+      font-family: var(--font-mono);
+    }
+    .specialist-badge {
+      background: rgba(0, 240, 255, 0.14);
+      color: var(--cyan-primary);
+      border: 1px solid rgba(0, 240, 255, 0.35);
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-weight: 700;
+    }
+    .surprise-badge {
+      background: rgba(168, 85, 247, 0.15);
+      color: #c084fc;
+      border: 1px solid rgba(168, 85, 247, 0.35);
+      padding: 2px 7px;
+      border-radius: 4px;
+    }
+    .learned-banner {
+      margin-top: 8px;
+      padding: 6px 10px;
+      background: rgba(16, 185, 129, 0.12);
+      border-left: 3px solid #10b981;
+      color: #34d399;
+      font-size: 11.5px;
+      border-radius: 4px;
+    }
+    .chat-input-bar {
+      padding: 12px 16px;
+      border-top: 1px solid var(--border-glass);
+      background: rgba(6, 9, 17, 0.75);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .workspace-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11.5px;
+      color: var(--text-dim);
+    }
+    .workspace-input {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: var(--cyan-primary);
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      padding: 4px 8px;
+      border-radius: 5px;
+      flex: 1;
+    }
+    .prompt-row {
+      display: flex;
+      gap: 10px;
+    }
+    .chat-textarea {
+      flex: 1;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid var(--border-glass);
+      border-radius: 8px;
+      color: #fff;
+      padding: 10px 14px;
+      font-family: var(--font-sans);
+      font-size: 13.5px;
+      resize: none;
+      height: 52px;
+      outline: none;
+    }
+    .chat-textarea:focus {
+      border-color: var(--cyan-primary);
+      box-shadow: 0 0 12px rgba(0, 240, 255, 0.2);
+    }
+    .send-btn {
+      background: linear-gradient(135deg, var(--cyan-primary), var(--indigo-primary));
+      color: #060911;
+      font-weight: 800;
+      border: none;
+      border-radius: 8px;
+      padding: 0 22px;
+      cursor: pointer;
+      font-size: 13px;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .send-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 0 16px rgba(0, 240, 255, 0.45);
+    }
+    .left-column {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      height: calc(100vh - 220px);
+      min-height: 560px;
+    }
+    .canvas-container {
+      flex: 1.25;
+      min-height: 310px;
+    }
+    .bottom-left-grid {
+      flex: 0.85;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      min-height: 210px;
+    }
+    .memory-panel {
+      background: var(--bg-card);
+      border: 1px solid var(--border-glass);
+      border-radius: 12px;
+      padding: 12px 14px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .memory-list {
+      flex: 1;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-top: 8px;
+      font-size: 11.5px;
+    }
+    .memory-item {
+      padding: 6px 8px;
+      background: rgba(255,255,255,0.03);
+      border-left: 2px solid var(--purple-accent);
+      border-radius: 4px;
+      color: #cbd5e1;
+    }
+  </style>
+</head>
+<body>
+  <!-- Top Navigation Bar -->
+  <header class="studio-header">
+    <div class="brand-wrapper">
+      <div class="brand-icon">&#9889;</div>
+      <div>
+        <div class="brand-title">SYNAPSE MIND</div>
+        <div class="brand-subtitle">Unified 13-Model Sentient Co-Worker & Continual Learning Cortex</div>
+      </div>
+    </div>
+
+    <div class="header-status-badge" id="wsBadge">
+      <span class="pulsing-dot"></span> 10Hz NEURAL TELEMETRY ONLINE
+    </div>
+
+    <div class="header-actions">
+      <button id="btnRunEvolution" class="nav-link" style="background:rgba(16,185,129,0.12);border-color:rgba(16,185,129,0.35);color:#34d399;cursor:pointer;">
+        &#9889; Evolve New Skill (Sandbox)
+      </button>
+      <button id="btnTeachMemory" class="nav-link" style="background:rgba(168,85,247,0.12);border-color:rgba(168,85,247,0.35);color:#c084fc;cursor:pointer;">
+        &#129504; Teach Hippocampus
+      </button>
+      <button id="btnInspectProvenance" class="nav-link" style="cursor:pointer;">&#128269; Fleet Provenance</button>
+      <button id="btnSynthesizeProduct" class="nav-link" style="display:none;">Synthesize</button>
+      <button id="btnExportZip" class="nav-link" style="display:none;">Export</button>
+    </div>
+  </header>
+
+  <!-- Main Studio Workspace -->
+  <main class="studio-main">
+    <!-- Hardware HUD Dashboard -->
+    <section class="hud-grid">
+      <!-- GPU Card -->
+      <div class="hud-card">
+        <div class="hud-label">
+          <span>GPU CORTEX (RTX 3090)</span>
+          <span class="hud-tag">24GB GDDR6X</span>
+        </div>
+        <div class="hud-value-row">
+          <span class="hud-val-primary" id="gpuVramVal">2,450</span>
+          <span class="hud-val-sub" id="gpuVramTotal">/ 24,576 MB</span>
+        </div>
+        <div class="hud-progress-bar">
+          <div class="hud-progress-fill fill-gpu" id="gpuVramBar" style="width: 10%;"></div>
+        </div>
+        <div class="hud-meta-row">
+          <span>Temp: <strong id="gpuTemp">42°C</strong></span>
+          <span>Util: <strong id="gpuUtil">5%</strong></span>
+          <span>Power: <strong id="gpuPower">45W</strong></span>
+        </div>
+      </div>
+
+      <!-- NVMe Storage Card -->
+      <div class="hud-card">
+        <div class="hud-label">
+          <span>990 PRO NVMe (D:\ai_models)</span>
+          <span class="hud-tag" id="nvmeSpeedup">8.4x Direct I/O</span>
+        </div>
+        <div class="hud-value-row">
+          <span class="hud-val-primary" id="nvmeUsedVal">1,331</span>
+          <span class="hud-val-sub" id="nvmeTotalVal">/ 2,000 GB</span>
+        </div>
+        <div class="hud-progress-bar">
+          <div class="hud-progress-fill fill-nvme" id="nvmeBar" style="width: 66.5%;"></div>
+        </div>
+        <div class="hud-meta-row">
+          <span id="nvmeFree">669 GB Free</span>
+          <span>Co-Resident: <strong>BGE-M3 (CPU)</strong></span>
+        </div>
+      </div>
+
+      <!-- Host Compute Card -->
+      <div class="hud-card">
+        <div class="hud-label">
+          <span>HOST COMPUTE (i5-14600K)</span>
+          <span class="hud-tag">14C / 20T</span>
+        </div>
+        <div class="hud-value-row">
+          <span class="hud-val-primary" id="cpuVal">12%</span>
+          <span class="hud-val-sub">RAM: <span id="ramVal">16.4</span> <span id="ramTotal">/ 32.0 GB</span></span>
+        </div>
+        <div class="hud-progress-bar">
+          <div class="hud-progress-fill fill-cpu" id="cpuBar" style="width: 12%;"></div>
+        </div>
+        <div class="hud-meta-row">
+          <span>Jarvis Link: <strong>Shared DB</strong></span>
+          <span>RAM Util: <strong id="ramBar">51%</strong></span>
+        </div>
+      </div>
+
+      <!-- Composite AGIQ Card -->
+      <div class="hud-card">
+        <div class="hud-label">
+          <span>COMPOSITE AGI QUOTIENT</span>
+          <span class="hud-tag" id="agiqDelta" style="color: #10b981;">+0.120</span>
+        </div>
+        <div class="hud-value-row">
+          <span class="hud-val-primary" id="agiqVal">145.33</span>
+          <span class="hud-val-sub">/ 200.0 Max</span>
+        </div>
+        <div class="hud-progress-bar">
+          <div class="hud-progress-fill fill-agiq" id="agiqBar" style="width: 72%;"></div>
+        </div>
+        <div class="hud-meta-row">
+          <span>Active Region: <strong id="agiqTrigger">Qwen3-30B-A3B</strong></span>
+          <span>Plasticity: <strong>Oja Hebbian</strong></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Center Workspace: Left = 13-Model Brain & Hippocampus | Right = Live Co-Working Dialogue -->
+    <section class="studio-workspace">
+      <!-- Left Column: Live 13-Node Brain Topology + Shared Hippocampus Memory & Activity -->
+      <div class="left-column">
+        <div class="canvas-container">
+          <div class="canvas-header">
+            <div class="canvas-title">
+              <span>&#9673; 13-SPECIALIST NEURAL CORTEX &amp; SYNAPTIC WEIGHTS</span>
+            </div>
+            <div class="canvas-legend">
+              <div class="legend-item"><div class="legend-color" style="background:#00f0ff;"></div> MoE 30B</div>
+              <div class="legend-item"><div class="legend-color" style="background:#38bdf8;"></div> Coder 32B</div>
+              <div class="legend-item"><div class="legend-color" style="background:#f43f5e;"></div> R1 Math</div>
+              <div class="legend-item"><div class="legend-color" style="background:#6366f1;"></div> Architect</div>
+              <div class="legend-item"><div class="legend-color" style="background:#8b5cf6;"></div> BGE-M3</div>
+            </div>
+          </div>
+          <canvas id="topologyCanvas"></canvas>
+          <div id="nodeTooltip" class="node-tooltip"></div>
+        </div>
+
+        <div class="bottom-left-grid">
+          <!-- Shared Hippocampus Memory (Jarvis + Synapse Mind) -->
+          <div class="memory-panel">
+            <div class="panel-title" style="font-size:12px;">&#129504; Shared Hippocampus Memories (Jarvis + Mind)</div>
+            <div class="memory-list" id="memoryList">
+              <div class="memory-item">Loading shared long-term memories from memory.db...</div>
+            </div>
+          </div>
+
+          <!-- Live Neural Routing Log -->
+          <div class="stream-panel" style="height:100%;">
+            <div class="panel-title" style="font-size:12px;">&#9889; Synaptic Plasticity &amp; Routing Log</div>
+            <div class="stream-list" id="streamList">
+              <div class="stream-item sys">
+                <div class="stream-timestamp">[D:\ai_models]</div>
+                <div>13 specialists online on Samsung 990 PRO NVMe.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Interactive Sentient Co-Working & Project Dialogue -->
+      <div class="cowork-container">
+        <div class="cowork-header">
+          <div>
+            <div style="font-size:14px;font-weight:700;color:#fff;">&#128172; Co-Working &amp; Continual Learning Console</div>
+            <div style="font-size:11px;color:var(--text-dim);">Converse, debug code, architect systems, and guide your 13 local models together</div>
+          </div>
+          <div class="cowork-modes" id="modeSelector">
+            <button class="mode-pill active" data-mode="auto">&#9889; Auto-Route (Smart)</button>
+            <button class="mode-pill" data-mode="council">&#129504; Full Council</button>
+            <button class="mode-pill" data-mode="coder">&#128187; Coder 32B</button>
+            <button class="mode-pill" data-mode="reasoner">&#128300; DeepSeek R1 32B</button>
+          </div>
+        </div>
+
+        <div class="chat-feed" id="chatFeed">
+          <div class="msg-bubble msg-assistant">
+            <div class="msg-meta">
+              <span class="specialist-badge">Qwen3-30B-A3B + BGE-M3</span>
+              <span class="surprise-badge">Hippocampus Linked</span>
+            </div>
+            <div>All 13 specialist regions on <code>D:\ai_models</code> (Samsung 990 PRO) are wired into my prefrontal router, and I'm linked directly into Jarvis's long-term Hippocampus memory.
+
+Whenever we talk or work on a project together here:
+1. I automatically embed your message with <strong>BGE-M3</strong> (on your i5-14600K CPU, zero VRAM eviction) to recall our past work and compute Bayesian novelty/surprise.
+2. I route the task to the best specialist region (or a multi-model council) and strengthen their <strong>Oja Hebbian synaptic weights</strong> shown on the left canvas.
+3. Any file path on your PC you mention (or the active workspace path below) is inspected live so we can co-design and debug real code together.
+
+What project or idea are we tackling today?</div>
+          </div>
+        </div>
+
+        <div class="chat-input-bar">
+          <div class="workspace-row">
+            <span>&#128193; Active Project Workspace:</span>
+            <input type="text" id="workspaceInput" class="workspace-input" value="I:\ai_models" placeholder="e.g. I:\ai_models or I:\Development Projects\..." />
+          </div>
+          <div class="prompt-row">
+            <textarea id="chatInput" class="chat-textarea" placeholder="Talk to your unified mind, paste code, reference a local file path, or ask the 13-model council to analyze a problem... (Enter to send, Shift+Enter for newline)"></textarea>
+            <button type="button" id="btnSendChat" class="send-btn">SEND &rarr;</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Provenance Inspection Modal -->
+  <div class="modal-overlay" id="provenanceModal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <div class="modal-title">&#128269; Fleet Provenance &amp; Evolved Skills</div>
+        <button class="modal-close-btn" id="closeModalBtn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <pre class="modal-pre" id="provenanceContent">Loading provenance data...</pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- 100% self-contained JavaScript modules -->
+  <script src="/static/js/canvas_topology.js?v=2.2"></script>
+  <script src="/static/js/hud_stream.js?v=2.2"></script>
+</body>
+</html>

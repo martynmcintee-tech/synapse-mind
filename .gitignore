@@ -1,0 +1,22 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# Local SQLite databases & WAL journals (contain user conversation history & local memories)
+*.db
+*.db-shm
+*.db-wal
+
+# Runtime generated sandbox, product, and release artifacts
+sandbox/*
+!sandbox/.gitkeep
+products/*
+!products/.gitkeep
+releases/*
+!releases/.gitkeep
+
+# Environment & secrets
+.env
+*.local

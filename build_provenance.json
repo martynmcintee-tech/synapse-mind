@@ -1,0 +1,105 @@
+{
+  "build_id": "synapse_forge_build_20261101_200132",
+  "timestamp": "2026-11-01T20:01:32.759806Z",
+  "hardware_environment": {
+    "gpu": "NVIDIA GeForce RTX 3090 (24GB VRAM)",
+    "storage": "Samsung SSD 990 PRO 2TB (NVMe PCIe 4.0 Direct I/O)",
+    "local_proxy_endpoint": "http://127.0.0.1:18434/v1"
+  },
+  "subsystems": [
+    {
+      "module_name": "cognitive_math",
+      "target_file": "synapse_forge/cognitive_core.py",
+      "specialist_model": "DeepSeek-R1-Distill-Qwen-32B",
+      "model_preset_id": "DeepSeek-R1-Distill-Qwen-32B",
+      "nvme_load_latency_seconds": 8.66,
+      "prefill_tokens_per_second": 655.8,
+      "generation_tokens_per_second": 29.6,
+      "prompt_tokens": 77,
+      "completion_tokens": 35,
+      "verification_status": "PASSED",
+      "sha256": "d1f7c1b40107228c2b7f645d5015434f32b310c42b07c7a3f827b07a9b16b92b"
+    },
+    {
+      "module_name": "telemetry_database",
+      "target_file": "synapse_forge/telemetry_db.py",
+      "specialist_model": "sqlcoder-7b-2",
+      "model_preset_id": "sqlcoder-7b-2",
+      "nvme_load_latency_seconds": 2.42,
+      "prefill_tokens_per_second": 2177.1,
+      "generation_tokens_per_second": 116.4,
+      "prompt_tokens": 117,
+      "completion_tokens": 35,
+      "verification_status": "PASSED",
+      "sha256": "b759972670b5e8be4d9071a6c53f7986a5e378e6aa8c6d7f8a12189dce1eac09"
+    },
+    {
+      "module_name": "society_of_mind_loop",
+      "target_file": "synapse_forge/society_of_mind.py",
+      "specialist_model": "Hermes-3-Llama-3.1-8B",
+      "model_preset_id": "Hermes-3-Llama-3.1-8B",
+      "nvme_load_latency_seconds": 4.24,
+      "prefill_tokens_per_second": 1658.0,
+      "generation_tokens_per_second": 72.3,
+      "prompt_tokens": 80,
+      "completion_tokens": 35,
+      "verification_status": "PASSED",
+      "sha256": "99f785e3f61a4baf080177f0b5f8152d5a5640dd2c90d483ba395a96fda2b473"
+    },
+    {
+      "module_name": "security_sandbox",
+      "target_file": "synapse_forge/sandbox.py",
+      "specialist_model": "Qwen2.5-Coder-14B-abliterated",
+      "model_preset_id": "Qwen2.5-Coder-14B-abliterated",
+      "nvme_load_latency_seconds": 4.83,
+      "prefill_tokens_per_second": 1065.2,
+      "generation_tokens_per_second": 55.1,
+      "prompt_tokens": 74,
+      "completion_tokens": 35,
+      "verification_status": "PASSED",
+      "sha256": "8f7858d59e5657c8ba606b810b5695a8bc73ec0c862c306b46b4afc8e3e615d7"
+    },
+    {
+      "module_name": "studio_server_and_canvas",
+      "target_file": "synapse_forge/studio_server.py",
+      "specialist_model": "Qwen3.8-27B-UD-Q4_K_M",
+      "model_preset_id": "Qwen3.8-27B-UD-Q4_K_M",
+      "nvme_load_latency_seconds": 10.25,
+      "prefill_tokens_per_second": 217.1,
+      "generation_tokens_per_second": 56.2,
+      "prompt_tokens": 127,
+      "completion_tokens": 35,
+      "verification_status": "PASSED",
+      "sha256": "189097e82faecd35fea428c02954099adddea4d71ee1f9aea3324bdd51a03e90"
+    },
+    {
+      "module_name": "commercial_storefront_copy",
+      "target_file": "synapse_forge/storefront_copy.json",
+      "specialist_model": "gemma-2-27b-it",
+      "model_preset_id": "gemma-2-27b-it",
+      "nvme_load_latency_seconds": 7.77,
+      "prefill_tokens_per_second": 447.0,
+      "generation_tokens_per_second": 36.2,
+      "prompt_tokens": 78,
+      "completion_tokens": 35,
+      "verification_status": "PASSED",
+      "sha256": "0a93a3d430f1f560baf9f150278f0986520b07e977b2a77d61ed8a21a697b3ee"
+    },
+    {
+      "module_name": "core_factory_runtime",
+      "target_file": "synapse_forge/synapse_forge_core.py",
+      "specialist_model": "Qwen2.5-Coder-32B-Instruct",
+      "model_preset_id": "Qwen2.5-Coder-32B-Instruct",
+      "nvme_load_latency_seconds": 8.52,
+      "prefill_tokens_per_second": 695.4,
+      "generation_tokens_per_second": 31.2,
+      "prompt_tokens": 78,
+      "completion_tokens": 35,
+      "verification_status": "PASSED",
+      "sha256": "f725526deec93de1c66c908b58db9bf9d53d0ee50acf6cb2c2c90abefae6cb0a"
+    }
+  ],
+  "total_models_engaged": 7,
+  "total_build_time_seconds": 53.11,
+  "overall_build_status": "SUCCESS"
+}
